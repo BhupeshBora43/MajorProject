@@ -1,9 +1,9 @@
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import './App.css';
-import AuthWrapper from './Components/authWrapper';
 import { Route, Routes } from 'react-router-dom';
-import Login from './Pages/login';
-import Home from './Pages/Home';
+import AuthWrapper from './Components/AuthWrapper.jsx';
+import Login from './Pages/Login.jsx';
+import Home from './Pages/Home.jsx';
 
 
 

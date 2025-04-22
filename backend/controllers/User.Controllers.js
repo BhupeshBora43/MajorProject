@@ -610,6 +610,7 @@ const getMessages = async (req, res) => {
 //for sidebar which has list of chats
 const fetchChats = async (req, res) => {
     try {
+        console.log("fetching chats")
         const { userId } = req.body;
         const objId = new mongoose.Types.ObjectId(userId);
         const chats = await ChatModel.find({ "members.user_id": objId })
