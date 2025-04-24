@@ -106,6 +106,7 @@ const createContactList = async (req, res) => {
 }
 
 const search = async (req, res) => {
+    console.log("in here search")
     const { content, userId } = req.body;
     if (!content) {
         return res.status(400).json({
@@ -198,7 +199,7 @@ const search = async (req, res) => {
                     : user.user_contacts.user_id.name,
                 dp: user.user_contacts.user_id.avatar?.secure_url,
                 chat_id: user.chat_id,
-                lastMessage: message.lastMessage,
+                lastMessage: (message?.lastMessage) ?  message?.lastMessage: "",
                 receive_id: user.user_contacts.user_id._id
             };
         }));
@@ -211,6 +212,7 @@ const search = async (req, res) => {
         });
 
     } catch (err) {
+        console.log(err.message)
         return res.status(500).json({
             success: false,
             message: err.message || "Something went wrong while searching"
