@@ -406,7 +406,6 @@ const addMembersToGroup = async (req, res) => {
 
 
 const sendMessage = async (req, res) => {
-    console.log("REQ.BODY",req.body)
     const { sender_user_id, message, attachments, chat_id } = req.body;
     if (!chat_id || !sender_user_id || !message) {
         return res.status(400).json({
@@ -521,7 +520,6 @@ export const sendMessageToDB = async ({ sender_user_id, message, attachments, ch
 };
 
 const getMessages = async (req, res) => {
-    //frontend is requiring the name and dp to display so i will attach it with response
     const { chat_id, userId } = req.body;
 
     if (!chat_id) {

@@ -28,7 +28,7 @@ const ChatContainer = () => {
 
   useEffect(() => {
     if (chatEndRef.current) {
-      chatEndRef.current.scrollIntoView({ behavior: "smooth" });
+      chatEndRef.current.scrollIntoView({});
     }
   }, [messagesData]);
 
@@ -45,6 +45,7 @@ const ChatContainer = () => {
   const handleSendMessage = () => {
     if (!message.trim()) return;
     const messageData = { sender_user_id, chat_id: selectedChat.chat_id, message };
+    console.log("messageData while scheduling", messageData);
     socket.emit('sendMessage', messageData);
     setMessage("");
   };

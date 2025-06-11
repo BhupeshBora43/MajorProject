@@ -23,7 +23,7 @@ const ChatList = () => {
             socket.emit("join-rooms",chat_ids)
         }
     },[chatList])
-    if (status === "loading") return <p>Loading chats...</p>;
+    // if (status === "loading") return <p>Loading chats...</p>;
     if (status === "failed") return <p>Error: {error}</p>;
 
     return (

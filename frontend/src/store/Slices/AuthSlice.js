@@ -149,7 +149,6 @@ const authSlice = createSlice({
         },
         receiveMessage: (state, action) => {
             const newMessage = action.payload;
-            console.log("new message",newMessage);
             state.chatList = state.chatList.map((chat) => {
                 if (chat._id === newMessage.chat_id) {
                     return {
@@ -163,8 +162,7 @@ const authSlice = createSlice({
                 }
                 return chat;
             });
-
-            state.messagesData.push(newMessage);
+            if(selectChat.chat_id === newMessage.chat_id)state.messagesData.push(newMessage);
         },
     },
 
